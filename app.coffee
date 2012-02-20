@@ -1,16 +1,18 @@
 express = require 'express'
 app = module.exports = express.createServer()
-staticsMiddleware = require './lib/middleware/statics'
+middleware = require './lib/middleware'
 
 app.configure () ->
 	app.set 'views', "#{__dirname}/views"
 	app.set 'view engine', 'jade'
 	app.set 'view options', { 'with': 'locals' }
 	app.use express.methodOverride()
+	app.use express.cookieParser()
 	app.use express.bodyParser()
 	app.use express.static "#{__dirname}/public"
-	app.use staticsMiddleware.statics()
-	app.use staticsMiddleware.globalStatics()
+	app.use middleware.statics.statics()
+	app.use middleware.statics.globalStatics()
+	app.use middleware.currentUser()
 	app.use app.router
 	app.use express.errorHandler { dumpExceptions: true, showStack: true }
 
@@ -21,6 +23,7 @@ app.get '/', (req, res) ->
 
 
 app.post '/reminders', (req, res) ->
+	console.log(req.body)
 	reminders.push(newReminder req)
 	res.redirect '/'
 

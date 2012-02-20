@@ -9,43 +9,55 @@ form#create-reminder-main.form-inline.alert.alert-success
 		h3 Reminder Details
 	.modal-body
 		form.form-horizontal(action="/reminders",method="POST")
-			fieldset.control-group
-				label(for="reminder-details-what") What
-				.controls
-					input.input-xlarge#reminder-details-what(type="text",name="what")
-			fieldset.control-group
-				label When (MM/DD/YYYY)
-				.controls
-					input.span1.inline(name="month",type="text",max-length="2",placeholder="MM")
-					input.span1.inline(name="day",type="text",max-length="2",placeholder="DD")
-					input.span1.inline(name="year",type="text",max-length="4",placeholder="YYYY")
+			fieldset
+				.control-group
+					label.control-label(for="reminder-details-what") What
+					.controls
+						input.input-xlarge#reminder-details-what(type="text",name="what")
+				.control-group
+					label.control-label When (MM/DD/YYYY)
+					.controls
+						input.span1.inline(name="month",type="text",max-length="2",placeholder="MM")
+						input.span1.inline(name="day",type="text",max-length="2",placeholder="DD")
+						input.span1.inline(name="year",type="text",max-length="4",placeholder="YYYY")
 
-			fieldset.control-group
-				label Time
-				.controls
-					select.span1.inline(name="hours")
-						each val in [1,2,3,4,5,6,7,8,9,10,11,12]
-							option(value="#{val}") #{val}
-					select.span1.inline(name="minutes")
-						each val in [0, 15, 30, 45]
-							option(value="#{val}") #{val}
-					select.span1.inline(name="amPm")
-						option(value="AM") AM
-						option(value="PM") PM
-			fieldset.control-group
-				label Remind Me
-				.controls
-					select(name="reminderOffset")
-						option(value="0") 0 minutes before
-						option(value="5") 5 minutes before
-						option(value="15") 15 minutes before
-						option(value="30") 30 minutes before
-						option(value="45") 45 minutes before
-						option(value="60") 1 hour before
-						option(value="120") 2 hours before
-						option(value="240") 4 hours before
-						option(value="720") 12 hours before
-						option(value="1440") 1 day before
+				.control-group
+					label.control-label Time
+					.controls
+						select.span1.inline(name="hours")
+							each val in [1,2,3,4,5,6,7,8,9,10,11,12]
+								option(value="#{val}") #{val}
+						select.span1.inline(name="minutes")
+							each val in [0, 15, 30, 45]
+								option(value="#{val}") #{val}
+						select.span1.inline(name="amPm")
+							option(value="AM") AM
+							option(value="PM") PM
+				.control-group
+					label.control-label Remind Me
+					.controls
+						select(name="reminderOffset")
+							option(value="0") 0 minutes before
+							option(value="5") 5 minutes before
+							option(value="15") 15 minutes before
+							option(value="30") 30 minutes before
+							option(value="45") 45 minutes before
+							option(value="60") 1 hour before
+							option(value="120") 2 hours before
+							option(value="240") 4 hours before
+							option(value="720") 12 hours before
+							option(value="1440") 1 day before
+				.control-group
+					label.control-label Using
+					.controls
+						label.checkbox.inline Email
+							input(type="checkbox",value="email",name="reminderTypes")
+						label.checkbox.inline Facebook
+							input(type="checkbox",value="facebook",name="reminderTypes")
+						label.checkbox.inline Twitter
+							input(type="checkbox",value="twitter",name="reminderTypes")
+						label.checkbox.inline SMS
+							input(type="checkbox",value="sms",name="reminderTypes")
 
 	footer.modal-footer
 		button.btn.btn-primary.create	Create Reminder

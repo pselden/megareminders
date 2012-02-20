@@ -5,10 +5,10 @@ header.navbar
 			ul.nav
 				li.active
 					a(href="#") Home
-				li
-					a(href="#") Link
-				li
-					a(href="#") Link
 			ul.nav.pull-right
-				li
-					a(href="#") Sign-In
+				- if (req.isSignedIn)
+					li
+						a#sign-out(href="#") Sign Out
+				- else
+					li
+						a#sign-in(href="#") Sign In
