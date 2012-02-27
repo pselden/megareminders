@@ -1,4 +1,4 @@
-userProviders = require '../../../user/providers'
+accountsProviders = require '../../../accounts/providers'
 
 exports.signup = (signupData, callback) ->
-	userProviders.email.createUser signupData.userId, signupData.email, signupData.password, callback
+	accountsProviders.emailAccounts.createEmailAccount signupData.userId, signupData.email, signupData.password, callback

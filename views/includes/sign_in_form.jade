@@ -1,0 +1,13 @@
+form(action="/signin?signinType=email",method="POST")
+	fieldset
+		.control-group
+			label.control-label(for="sign-in-email") Email
+			.controls
+				input#sign-in-email(name="email",type="text")
+		.control-group
+			label.control-label(for="sign-in-password) Password
+			.controls
+				input#sign-in-password(name="password",type="password")
+		.control-group
+			.controls
+				button.btn.btn-primary(type="submit") Sign In

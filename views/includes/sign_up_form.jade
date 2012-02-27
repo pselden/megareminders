@@ -1,0 +1,13 @@
+form(action="/users?signupType=email",method="POST")
+	fieldset
+		.control-group
+			label.control-label(for="sign-up-email") Email
+			.controls
+				input#sign-up-email(name="email",type="text")
+		.control-group
+			label.control-label(for="sign-up-password) Password
+			.controls
+				input#sign-up-password(name="password",type="password")
+		.control-group
+			.controls
+				button.btn.btn-primary(type="submit") Sign Up

@@ -1,0 +1,5 @@
+exports.home = require './homeController'
+exports.reminders = require './remindersController'
+exports.thirdParty = require './thirdPartyController'
+exports.users = require './usersController'
+exports.sessions = require './sessionsController'

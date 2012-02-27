@@ -1,0 +1,11 @@
+.tabbable
+	ul.nav.nav-tabs
+		li.active
+			a(href="#sign-in-form",data-toggle="tab") Sign In
+		li
+			a(href="#sign-up-form",data-toggle="tab") Sign Up
+	.tab-content
+		#sign-in-form.tab-pane.active
+			include sign_in_form
+		#sign-up-form.tab-pane
+			include sign_up_form

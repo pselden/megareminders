@@ -1,0 +1,1 @@
+coffee "./migrations/migrate" $1

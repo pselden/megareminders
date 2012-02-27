@@ -3,6 +3,7 @@ form#create-reminder-main.form-inline.alert.alert-success
 		.control-group
 			input(type="text",name="title",placeholder="What do you need to remember?")
 			button.btn.btn-primary.btn-large.create Create Reminder
+
 #create-reminder-details-dialog.modal.fade.hide
 	header.modal-header
 		a.close(data-dismiss="modal") x
@@ -14,6 +15,7 @@ form#create-reminder-main.form-inline.alert.alert-success
 					label.control-label(for="reminder-details-what") What
 					.controls
 						input.input-xlarge#reminder-details-what(type="text",name="what")
+
 				.control-group
 					label.control-label When (MM/DD/YYYY)
 					.controls
@@ -33,6 +35,7 @@ form#create-reminder-main.form-inline.alert.alert-success
 						select.span1.inline(name="amPm")
 							option(value="AM") AM
 							option(value="PM") PM
+
 				.control-group
 					label.control-label Remind Me
 					.controls
@@ -47,6 +50,7 @@ form#create-reminder-main.form-inline.alert.alert-success
 							option(value="240") 4 hours before
 							option(value="720") 12 hours before
 							option(value="1440") 1 day before
+
 				.control-group
 					label.control-label Using
 					.controls
