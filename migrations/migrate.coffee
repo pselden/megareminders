@@ -132,6 +132,7 @@ onMigrationFinish = (err) ->
 	process.exit()
 
 run = () ->
+	console.log 'running migrations'
 	prepareMetadata () ->
 		mode = process.argv[2]
 		switch mode
