@@ -1,15 +1,18 @@
-reminders = []
+remindersProvider = require '../lib/reminders/providers'
+
 exports.create = (req, res) ->
-	reminders.push(newReminder req)
-	res.redirect '/'
+	reminder = newReminder req
+	remindersProvider.reminders.createReminder req.currentUser.user_id, reminder, (err, result) ->
+		res.redirect '/'
 
 newReminder = (req) ->
+	body = req.body
+	if body.amPm == "PM"
+		body.hours = body.hours + 12
+	reminder_when = new Date body.year, body.month-1, body.day, body.hours, body.minutes
+	reminder_time = new Date (reminder_when.getTime() - (body.reminderOffset * 60 * 1000))
 	reminder =
-		what: req.body.what
-		month: req.body.month
-		day: req.body.day
-		year: req.body.year
-		hours: req.body.hours
-		minutes: req.body.minutes
-		amPm: req.body.amPm
-		reminderOffset: req.body.reminderOffset
+		what: body.what
+		when: reminder_when
+		reminderTime: reminder_time
+		reminderTypes: body.reminderTypes || []

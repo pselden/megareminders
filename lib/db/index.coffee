@@ -1,4 +1,4 @@
-pg = require 'pg'
+pg = require('pg').native
 config = require('../config')
 
 # connects to the db and executes the query

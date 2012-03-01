@@ -8,6 +8,13 @@ exports.getEmailAccountByEmail= (email, callback) ->
 		else
 			callback null, results.rows[0]
 
+exports.getEmailAccountByUserId= (userId, callback) ->
+	persitence.emailAccounts.getEmailAccountByUserId userId, (err, results) ->
+		if err
+			callback err
+		else
+			callback null, results.rows[0]
+
 exports.createEmailAccount = (userId, email, password, callback) ->
 	bcrypt.gen_salt 10, (err, salt) ->
 		bcrypt.encrypt password, salt, (err, hash) ->

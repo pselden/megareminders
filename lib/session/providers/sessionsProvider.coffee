@@ -8,7 +8,6 @@ COOKIE_SECRET = "scooterIsth3bestDoginth3world"
 exports.getCurrentUser = (req, res, callback) ->
 	userId = getCookie req, USER_ID_COOKIE, true
 	if userId
-		console.log "userId: #{userId}"
 		usersProviders.users.getUserByUserId userId, callback
 	else
 		callback null, null

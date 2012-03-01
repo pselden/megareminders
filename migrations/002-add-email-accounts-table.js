@@ -6,7 +6,7 @@ exports.up = function(next){
 			"email varchar(40) PRIMARY KEY," +
 			"password_hash varchar(128) NOT NULL," +
 			"user_id integer REFERENCES users (user_id) CONSTRAINT one_email_per_user UNIQUE," +
-			"verified boolean DEFAULT false" +
+			"is_verified boolean DEFAULT false" +
 			");";
 
 	db.query(query, next);
