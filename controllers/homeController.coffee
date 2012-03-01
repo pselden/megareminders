@@ -13,6 +13,4 @@ exports.homeSignedIn = (req, res, next) ->
 		remindersProvider.reminders.getUpcomingReminders req.currentUser.user_id, 5, 0, callback
 
 	async.parallel tasks, (err, results) ->
-		console.log err
-		console.log results
 		res.render 'home_signed_in', { req: req, reminders: results.getUpcomingReminders }

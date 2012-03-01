@@ -3,7 +3,7 @@ db = require '../../db'
 exports.getUpcomingReminders = (userId, limit, offset, callback) ->
 	query =
 		name: 'get upcoming reminders'
-		text: "SELECT * FROM reminders WHERE user_id = $1 AND \"when\" < $2
+		text: "SELECT * FROM reminders WHERE user_id = $1 AND \"when\" > $2
 				ORDER BY \"when\" ASC
 				LIMIT $3
 				OFFSET $4",
