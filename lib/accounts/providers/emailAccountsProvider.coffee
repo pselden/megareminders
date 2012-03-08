@@ -1,5 +1,7 @@
 persistence = require '../persistence'
 bcrypt = require 'bcrypt'
+validator = require 'validator'
+
 
 exports.getEmailAccountByEmail= (email, callback) ->
 	persistence.emailAccounts.getEmailAccountByEmail email, (err, results) ->
@@ -18,10 +20,10 @@ exports.getEmailAccountByUserId= (userId, callback) ->
 exports.createEmailAccount = (userId, email, password, callback) ->
 	try
 		validator.check(email, 'Invalid email.').isEmail();
-		validator.check(password, 'Invalid password.').is
+		validator.check(password, 'Invalid password.').notEmpty();
 		bcrypt.gen_salt 10, (err, salt) ->
-		bcrypt.encrypt password, salt, (err, hash) ->
-		persistence.emailAccounts.createEmailAccount userId, email, hash, callback
+			bcrypt.encrypt password, salt, (err, hash) ->
+				persistence.emailAccounts.createEmailAccount userId, email, hash, callback
 	catch err
 		callback err
 
