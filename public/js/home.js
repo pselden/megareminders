@@ -9,6 +9,7 @@
 			$amPm = $form.find('select[name=amPm]'),
 			$reminderOffset = $form.find('select[name=reminderOffset]');
 
+		$form.find('input[name="when"]').datepicker({showOtherMonths: true, selectOtherMonths: true });
 
 		this.populate = function(data){
 			$what.val(data.what);
