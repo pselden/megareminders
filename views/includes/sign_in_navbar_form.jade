@@ -1,0 +1,19 @@
+#sign-in-navbar
+	form.navbar-form.form-inline.pull-right(method="POST",action="/signup")
+		.control-group
+			.controls
+				strong.help-inline Invalid email/password.
+				.input-prepend
+					span.add-on
+						i.icon-envelope
+					input.input-small(type="email",name="email",placeholder="Email",required)
+				.input-prepend
+					span.add-on
+						i.icon-key
+					input.input-small(type="password",name="password",placeholder="Password",required)
+				button.btn.btn-mini(type="submit") Sign In
+	.third-party.pull-right
+		button.facebook.btn.btn-smooth.btn-dark(type="button")
+			i.icon-facebook-sign
+		button.twitter.btn.btn-smooth.btn-dark(type="button")
+			i.icon-twitter-sign

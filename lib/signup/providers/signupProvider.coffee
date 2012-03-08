@@ -8,7 +8,9 @@ exports.signup = (signupData, signupType, callback) ->
 		signupStrategy = signupStrategies[signupType.toLowerCase()]
 		signupStrategy.signup signupData, (err, result) ->
 			if err
-				callback err
+				# roll back the "transaction" by deleting the orphaned user
+				usersProviders.users.deleteUser newUser.user_id, (deleteErr, result) ->
+					callback err
 			else
 				callback null, newUser
 

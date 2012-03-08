@@ -13,3 +13,6 @@ exports.createUser = (callback) ->
 			callback err
 		else
 			callback null, results.rows[0]
+
+exports.deleteUser = (userId, callback) ->
+	peristence.users.deleteuser callback

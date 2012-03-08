@@ -28,7 +28,7 @@ exports.sendReminder = (reminder, callback) ->
 	async.parallel tasks, (err, results) ->
 		persistence.reminders.markReminderAsSent reminder.reminder_id, callback
 
-# gets "expired" reminders that have not ben sent yet
+# gets "expired" reminders that have not been sent yet
 exports.getRemindersToSend = (limit, callback) ->
 	persistence.reminders.getRemindersToSend limit, (err, results) ->
 		if err

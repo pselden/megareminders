@@ -1,3 +1,28 @@
-#create-reminder-main {  padding: 20px; }
+#create-reminder-main { padding: 20px; }
 #create-reminder-main input[name="title"] { padding-left: 20px; height: 40px; font-size: 26px; line-height: 26px; width: 720px; }
 #create-reminder-main button.create { height: 50px; border-radius: 0 5px 5px 0; }
+
+#sign-in-navbar > .third-party .btn { font-size: 24px; line-height: 1em; padding: 2px 4px; }
+#sign-in-navbar > form .control-group { margin: 0; }
+#sign-in-navbar > form .btn { margin-top: 0; }
+#sign-in-navbar > form .input-prepend { width: 125px; }
+#sign-in-navbar > form .help-inline { display:none; }
+#sign-in-navbar > form .error .help-inline { display: inline-block; }
+#sign-in-navbar > form .controls > * { margin-left: 5px; }
+
+.btn.btn-dark {
+	color: #FFF;
+	border: 1px solid #000;
+}
+.btn.btn-smooth {
+	background-position: 0;
+	background-image: -moz-linear-gradient(rgba(255,255,255, 0.2), rgba(0,0,0, 0.2));
+	background-image: -webkit-linear-gradient(rgba(255,255,255, 0.2), rgba(0,0,0, 0.2));
+}
+
+.btn.btn-smooth:hover {
+	background-image: -moz-linear-gradient(rgba(255,255,255, 0.3), rgba(0,0,0, 0.2));
+	background-image: -webkit-linear-gradient(rgba(255,255,255, 0.3), rgba(0,0,0, 0.2));
+}
+.btn.facebook { background-color: #3B5998;  }
+.btn.twitter { background-color: #9AE4E8; }

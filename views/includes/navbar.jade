@@ -2,10 +2,13 @@ header.navbar
 	.navbar-inner
 		.container
 			a.brand(href="/") Reminders
-			ul.nav
-				li.active
-					a(href="#") Home
-			ul.nav.pull-right
-				- if (req.isSignedIn)
+			- if (req.isSignedIn)
+				ul.nav
+					li.active
+						a(href="#") Home
+				ul.nav.pull-right
 					li
 						a#sign-out(href="/signout") Sign Out
+			- else
+				include sign_in_navbar_form
+

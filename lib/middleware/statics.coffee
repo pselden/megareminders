@@ -15,6 +15,6 @@ exports.statics = () ->
 
 exports.globalStatics = () ->
 	return (req, res, next) ->
-		res.addCss 'bootstrap', 'global'
+		res.addCss 'bootstrap', 'font-awesome', 'global'
 		res.addScript 'jquery-1.7.1', 'bootstrap'
 		next()
