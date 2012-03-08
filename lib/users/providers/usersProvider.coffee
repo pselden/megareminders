@@ -15,4 +15,4 @@ exports.createUser = (callback) ->
 			callback null, results.rows[0]
 
 exports.deleteUser = (userId, callback) ->
-	peristence.users.deleteuser callback
+	peristence.users.deleteUser callback
