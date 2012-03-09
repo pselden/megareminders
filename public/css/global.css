@@ -10,6 +10,8 @@
 #sign-in-navbar > form .error .help-inline { display: inline-block; }
 #sign-in-navbar > form .controls > * { margin-left: 5px; }
 
+#sign-up-main > .third-party > .btn { margin-top: 2px; }
+
 .btn.btn-dark {
 	color: #FFF;
 	border: 1px solid #000;
@@ -24,5 +26,8 @@
 	background-image: -moz-linear-gradient(rgba(255,255,255, 0.3), rgba(0,0,0, 0.2));
 	background-image: -webkit-linear-gradient(rgba(255,255,255, 0.3), rgba(0,0,0, 0.2));
 }
+
 .btn.facebook { background-color: #3B5998;  }
 .btn.twitter { background-color: #9AE4E8; }
+.btn > .icon-left { margin-right: 5px; }
+.btn > .icon-right { margin-left: 5px; }

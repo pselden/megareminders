@@ -1,0 +1,21 @@
+#sign-up-main
+	form(action="/users?signupType=email",method="POST")
+		fieldset
+			.control-group
+				label.control-label(for="sign-up-email") Email
+				.controls
+					input#sign-up-email(name="email",type="email",required)
+			.control-group
+				label.control-label(for="sign-up-password) Password
+				.controls
+					input#sign-up-password(name="password",type="password",required)
+			.control-group
+				.controls
+					button.btn.btn-primary(type="submit") Sign Up
+	.third-party
+		a.facebook.btn.btn-smooth.btn-dark(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
+			i.icon-facebook-sign.icon-large.icon-left
+			| Sign up with Facebook
+		a.twitter.btn.btn-smooth.btn-dark(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
+			i.icon-twitter-sign.icon-large.icon-left
+			| Sign up with Twitter

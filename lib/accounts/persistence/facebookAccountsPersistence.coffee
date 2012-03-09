@@ -20,6 +20,6 @@ exports.getFacebookAccountByUserId = (userId, callback) ->
 exports.createFacebookAccount = (userId, facebookId, accessToken, callback) ->
 	query =
 		name: 'create facebook account'
-		text: 'INSERT INTO facebook_user (facebook_id, token, user_id) VALUES ($1, $2, $3)'
+		text: 'INSERT INTO facebook_accounts (facebook_id, token, user_id) VALUES ($1, $2, $3)'
 		values: [facebookId, accessToken, userId]
 	db.query query, callback

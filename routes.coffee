@@ -16,6 +16,6 @@ exports.register = (app) ->
 	app.get '/signout', controllers.sessions.destroy
 
 	# third party
-	app.get '/thirdparty/:provider', controllers.thirdParty.authorize
-	app.get '/thirdparty/:provider/test', controllers.thirdParty.test
+	app.get '/thirdparty/:service/authorize', controllers.thirdParty.authorize
+	app.get '/thirdparty/:service/authenticate', controllers.thirdParty.authenticate
 	app.post '/thirdparty/facebook/canvas', controllers.thirdParty.facebookCanvas

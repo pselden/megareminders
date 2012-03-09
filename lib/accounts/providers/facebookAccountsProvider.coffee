@@ -15,4 +15,4 @@ exports.getFacebookAccountByUserId = (userId, callback) ->
 			callback null, results.rows[0]
 
 exports.createFacebookAccount = (userId, facebookId, accessToken, callback) ->
-	persistence.emailAccounts.createFacebookAccount userId, facebookId, accessToken, callback
+	persistence.facebookAccounts.createFacebookAccount userId, facebookId, accessToken, callback

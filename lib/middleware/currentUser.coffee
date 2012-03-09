@@ -4,6 +4,7 @@ module.exports = () ->
 	return (req, res, next) ->
 		sessionsProviders.sessions.getCurrentUser req, res, (err, user) ->
 			if user
+				console.log user
 				req.isSignedIn = true
 				req.currentUser = user
 			else
