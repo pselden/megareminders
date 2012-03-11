@@ -1,19 +1,19 @@
 #sign-in-navbar
-	form.navbar-form.form-inline.pull-right(method="POST",action="/signup")
+	form.navbar-form.form-inline.pull-right(method="POST",action="/signin?type=email")
 		.control-group
 			.controls
 				strong.help-inline Invalid email/password.
 				.input-prepend
 					span.add-on
 						i.icon-envelope
-					input.input-small(type="email",name="email",placeholder="Email",required)
+					input.span2(type="email",name="email",placeholder="Email",required)
 				.input-prepend
 					span.add-on
 						i.icon-key
-					input.input-small(type="password",name="password",placeholder="Password",required)
+					input.span2(type="password",name="password",placeholder="Password",required)
 				button.btn.btn-mini(type="submit") Sign In
 	.third-party.pull-right
-		a.facebook.btn.btn-smooth.btn-dark(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
+		a.facebook.btn.btn-smooth.btn-dark(title="Sign in with Facebook",href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
 			i.icon-facebook-sign
-		a.twitter.btn.btn-smooth.btn-dark(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
+		a.twitter.btn.btn-smooth.btn-dark(title="Sign in with Twitter",href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
 			i.icon-twitter-sign

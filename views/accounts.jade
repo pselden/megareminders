@@ -1,0 +1,37 @@
+.row
+	.span12
+		h1 Accounts
+		.accounts
+			.email
+				h2
+					i.icon-envelope
+					|  Email
+				.account-details
+				- if (accounts.email)
+					span  Email: #{accounts.email.email}
+				- else
+					p You don't have an email account connected -- click here to set one up
+			.facebook
+				h2
+					i.icon-facebook-sign
+					|  Facebook
+				- if(accounts.facebook)
+					span Facebook Id: #{accounts.facebook.facebook_id}
+				- else
+					p You don't have a Facebook account connected - click here to set one up
+			.twitter
+				h2
+					i.icon-twitter-sign
+					|  Twitter
+				- if(accounts.twitter)
+					span Twitter Id: #{accounts.twitter.twitter_id}
+				- else
+					p You don't have a Twitter account connected - click here to set one up
+			.sms
+				h2
+					i.icon-list-alt
+					|  SMS
+				- if(accounts.sms)
+					span Number: #{accounts.sms.phone_number}
+				- else
+					p You don't have an SMS account connected - click here to set one up

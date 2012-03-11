@@ -4,8 +4,10 @@ header.navbar
 			a.brand(href="/") Reminders
 			- if (req.isSignedIn)
 				ul.nav
-					li.active
-						a(href="#") Home
+					li(class=req.pageName == 'home' ? 'active' : '')
+						a(href="/") Home
+					li(class=req.pageName == 'accounts' ? 'active' : '')
+						a(href="/accounts") Accounts
 				ul.nav.pull-right
 					li
 						a#sign-out(href="/signout") Sign Out

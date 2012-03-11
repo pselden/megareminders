@@ -18,8 +18,8 @@ exports.createReminder = (userId, reminder, callback) ->
 exports.sendReminder = (reminder, callback) ->
 	tasks = {}
 	reminder.reminder_types.forEach (type) ->
-		task[type] = (callback) ->
-			strategy = reminderStrategies[type.toLowerCase]
+		tasks[type] = (callback) ->
+			strategy = reminderStrategies[type.toLowerCase()]
 			if strategy
 				strategy.sendReminder reminder, callback
 			else
@@ -34,4 +34,14 @@ exports.getRemindersToSend = (limit, callback) ->
 		if err
 			callback err
 		else
-			callback null, results.rows
+			callback null, parseRows results.rows
+
+parseRows = (rows) ->
+	reminders = rows.map (row) ->
+		reminder = row
+		reminderTypes = reminder.reminder_types
+		reminderTypes = reminderTypes.substring 1, reminderTypes.length - 1
+		reminder.reminder_types = reminderTypes.split(',')
+		return reminder
+
+	return reminders

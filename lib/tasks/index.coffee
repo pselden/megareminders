@@ -1,0 +1,1 @@
+exports.sendReminders = require './sendReminders'

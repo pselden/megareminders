@@ -1,21 +1,33 @@
 controllers = require('./controllers')
+middleware = require './lib/middleware'
 
 exports.register = (app) ->
+	registerRoute = (method, path, middleware..., action) ->
+		app[method] path, middleware, (req, res, next) ->
+			res.local 'req', req
+			action req, res, next
+
 	# home
-	app.get '/', controllers.home.homeSignedOut
-	app.get '/', controllers.home.homeSignedIn
+	registerRoute 'get', '/', middleware.routes.requireSignin(false), controllers.home.homeSignedOut
+	registerRoute 'get', '/', middleware.routes.requireSignin(true), controllers.home.homeSignedIn
+
+	# accounts
+	registerRoute 'get', '/accounts', middleware.routes.requireSignin(true), controllers.accounts.show
 
 	# users
-	app.post '/users', controllers.users.create
+	registerRoute 'post', '/signup', controllers.users.create
 
 	# reminders
-	app.post '/reminders', controllers.reminders.create
+	registerRoute 'post', '/reminders', controllers.reminders.create
 
 	# sessions
-	app.post '/signin', controllers.sessions.create
-	app.get '/signout', controllers.sessions.destroy
+	registerRoute 'post', '/signin', controllers.sessions.create
+	registerRoute 'get', '/signout', controllers.sessions.destroy
 
 	# third party
-	app.get '/thirdparty/:service/authorize', controllers.thirdParty.authorize
-	app.get '/thirdparty/:service/authenticate', controllers.thirdParty.authenticate
-	app.post '/thirdparty/facebook/canvas', controllers.thirdParty.facebookCanvas
+	registerRoute 'get', '/thirdparty/:service/authorize', controllers.thirdParty.authorize
+	registerRoute 'get', '/thirdparty/:service/authenticate', controllers.thirdParty.authenticate
+	registerRoute 'post', '/thirdparty/facebook/canvas', controllers.thirdParty.facebookCanvas
+
+
+

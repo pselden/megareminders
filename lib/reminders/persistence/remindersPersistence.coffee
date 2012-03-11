@@ -14,7 +14,7 @@ exports.getRemindersToSend = (limit, callback) ->
 	query =
 		name: 'get reminders to send'
 		text: "SELECT * FROM reminders
-				WHERE reminder_time <= $1 AND isSent = false
+				WHERE reminder_time <= $1 AND is_sent = false
 				LIMIT $2"
 		values: [new Date(), limit]
 	db.query query, callback
