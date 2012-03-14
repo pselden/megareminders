@@ -17,22 +17,20 @@ form#create-reminder-main.form-inline.alert.alert-success
 						input.input-xlarge#reminder-details-what(type="text",name="what")
 
 				.control-group
-					label.control-label When (MM/DD/YYYY)
+					label.control-label When
 					.controls
-						input.span3.inline(name="when")
-
-				.control-group
-					label.control-label Time
-					.controls
-						select.span1.inline(name="hours")
+						input.span2(name="when")
+						span @
+						select.span1(name="hours")
 							each val in [1,2,3,4,5,6,7,8,9,10,11,12]
 								option(value="#{val}") #{val}
-						select.span1.inline(name="minutes")
+						select.span1(name="minutes")
 							each val in [0, 15, 30, 45]
 								option(value="#{val}") #{val}
-						select.span1.inline(name="amPm")
+						select.span1(name="amPm")
 							option(value="AM") AM
 							option(value="PM") PM
+
 
 				.control-group
 					label.control-label Remind Me
@@ -52,14 +50,18 @@ form#create-reminder-main.form-inline.alert.alert-success
 				.control-group
 					label.control-label Using
 					.controls
-						label.checkbox.inline Email
-							input(type="checkbox",value="email",name="reminderTypes")
-						label.checkbox.inline Facebook
-							input(type="checkbox",value="facebook",name="reminderTypes")
-						label.checkbox.inline Twitter
-							input(type="checkbox",value="twitter",name="reminderTypes")
-						label.checkbox.inline SMS
-							input(type="checkbox",value="sms",name="reminderTypes")
+						- if(accounts.email)
+							label.checkbox.inline Email
+								input(type="checkbox",value="email",name="reminderTypes")
+						- if(accounts.facebook)
+							label.checkbox.inline Facebook
+								input(type="checkbox",value="facebook",name="reminderTypes")
+						- if(accounts.twitter)
+							label.checkbox.inline Twitter
+								input(type="checkbox",value="twitter",name="reminderTypes")
+						- if(accounts.sms)
+							label.checkbox.inline SMS
+								input(type="checkbox",value="sms",name="reminderTypes")
 
 	footer.modal-footer
 		button.btn.btn-primary.create	Create Reminder

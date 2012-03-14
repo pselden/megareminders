@@ -12,6 +12,15 @@
 
 #sign-up-main > .third-party > .btn { margin-top: 2px; }
 
+#accounts form label { margin-right: 5px; }
+#accounts form .controls { display: inline-block; margin-right: 5px; }
+#accounts > h1 { margin-bottom: 20px; }
+#accounts > div { margin: 0 0 20px 40px; }
+#accounts > .facebook > h2 > i { color: #3B5998; }
+#accounts > .twitter > h2 > i { color: #9AE4E8; }
+#accounts .facebook .connect-btn,
+#accounts .twitter .connect-btn { margin-left: 5px;}
+
 .btn.btn-dark {
 	color: #FFF;
 	border: 1px solid #000;
@@ -27,7 +36,7 @@
 	background-image: -webkit-linear-gradient(rgba(255,255,255, 0.3), rgba(0,0,0, 0.2));
 }
 
-.btn.facebook { background-color: #3B5998;  }
-.btn.twitter { background-color: #9AE4E8; }
+.btn.facebook { background-color: #3B5998; color: #FFF;  }
+.btn.twitter { background-color: #9AE4E8; color: #FFF; }
 .btn > .icon-left { margin-right: 5px; }
 .btn > .icon-right { margin-left: 5px; }

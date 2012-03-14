@@ -12,7 +12,9 @@ exports.register = (app) ->
 	registerRoute 'get', '/', middleware.routes.requireSignin(true), controllers.home.homeSignedIn
 
 	# accounts
-	registerRoute 'get', '/accounts', middleware.routes.requireSignin(true), controllers.accounts.show
+	registerRoute 'get', '/accounts', middleware.routes.requireSignin(true), controllers.accounts.index
+	registerRoute 'post', '/accounts/:type', middleware.routes.requireSignin(true), controllers.accounts.create
+	registerRoute 'delete', '/accounts/:type/:id', middleware.routes.requireSignin(true), controllers.accounts.destroy
 
 	# users
 	registerRoute 'post', '/signup', controllers.users.create
@@ -27,6 +29,7 @@ exports.register = (app) ->
 	# third party
 	registerRoute 'get', '/thirdparty/:service/authorize', controllers.thirdParty.authorize
 	registerRoute 'get', '/thirdparty/:service/authenticate', controllers.thirdParty.authenticate
+	registerRoute 'get', '/thirdparty/:service/connect', middleware.routes.requireSignin(true), controllers.thirdParty.connectAccount
 	registerRoute 'post', '/thirdparty/facebook/canvas', controllers.thirdParty.facebookCanvas
 
 

@@ -1,14 +1,14 @@
 async = require 'async'
-emailAccountsProvider = require './emailAccountsProvider'
-facebookAccountsProvider = require './facebookAccountsProvider'
-twitterAccountsProvider = require './twitterAccountsProvider'
+accountsStrategies = require './accountsStrategies'
 
 exports.getAccounts = (userId, callback) ->
-	tasks =
-		email: (callback) ->
-			emailAccountsProvider.getEmailAccountByUserId userId, callback
-		facebook: (callback) ->
-			facebookAccountsProvider.getFacebookAccountByUserId userId, callback
-		twitter: (callback) ->
-			twitterAccountsProvider.getTwitterAccountByUserId userId, callback
+	accountTypes = ['email', 'twitter', 'facebook']
+	tasks = {}
+	accountTypes.forEach (type) ->
+		tasks[type] = (callback) ->
+			accountsStrategies[type].getAccountByUserId userId, callback
+
 	async.parallel tasks, callback
+
+exports.createAccount = (accountType, accountData, callback) ->
+	accountsStrategies[accountType].createAccount accountData, callback

@@ -1,5 +1,6 @@
 async = require 'async'
-remindersProvider = require '../lib/reminders/providers'
+remindersProviders = require '../lib/reminders/providers'
+accountsProviders = require '../lib/accounts/providers'
 
 exports.homeSignedOut = (req, res, next) ->
 	req.pageName = 'home'
@@ -10,7 +11,13 @@ exports.homeSignedIn = (req, res, next) ->
 	res.addScript('home')
 	tasks = {}
 	tasks.getUpcomingReminders = (callback) ->
-		remindersProvider.reminders.getUpcomingReminders req.currentUser.user_id, 5, 0, callback
+		remindersProviders.reminders.getUpcomingReminders req.currentUser.user_id, 5, 0, callback
+
+	tasks.getAccounts = (callback) ->
+		accountsProviders.accountsHelper.getAccounts req.currentUser.user_id, callback
 
 	async.parallel tasks, (err, results) ->
-		res.render 'home_signed_in', { reminders: results.getUpcomingReminders }
+		data =
+			reminders: results.getUpcomingReminders
+			accounts: results.getAccounts
+		res.render 'home_signed_in', data
