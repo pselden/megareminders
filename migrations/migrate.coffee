@@ -36,7 +36,6 @@ setVersion = (version, callback) ->
 
 # checks for existence of database metadata and creates it if one does not exist
 prepareMetadata = (callback) ->
-	console.log 'metadata 1'
 	createMetadata = () ->
 		query = "CREATE TABLE _metadata (
 				   	version integer DEFAULT 0
@@ -48,10 +47,8 @@ prepareMetadata = (callback) ->
 
 	getVersion (err) ->
 		if err
-			console.log 'metadata 3'
 			createMetadata()
 		else
-			console.log 'metadata 2'
 			callback null, null
 
 # runs all remaining migrations
