@@ -134,7 +134,7 @@ onMigrationFinish = (err) ->
 run = () ->
 	console.log 'running migrations'
 	prepareMetadata () ->
-		mode = process.argv[2]
+		mode = process.argv[process.argv.length-1]
 		switch mode
 			when "rollback" then rollback onMigrationFinish
 			when "down" then down onMigrationFinish
