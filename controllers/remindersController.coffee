@@ -20,3 +20,7 @@ newReminder = (req) ->
 		when: reminderWhen
 		reminderTime: reminderTime
 		reminderTypes: reminderTypes
+
+exports.show = (req, res) ->
+	remindersProvider.getReminderByReminderId req.params.reminderId, (err, reminder) ->
+		res.render 'reminders/show'

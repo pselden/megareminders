@@ -1,3 +1,9 @@
+/* Home */
+#upcoming-reminders .reminder > i { display:none; margin-left: 2px;}
+#upcoming-reminders .reminder.email > i.email,
+#upcoming-reminders .reminder.facebook > i.facebook,
+#upcoming-reminders .reminder.twitter > i.twitter { display: inline-block; }
+
 #create-reminder-main { padding: 20px; }
 #create-reminder-main input[name="title"] { padding-left: 20px; height: 40px; font-size: 26px; line-height: 26px; width: 720px; }
 #create-reminder-main button.create { height: 50px; border-radius: 0 5px 5px 0; }
@@ -10,7 +16,8 @@
 #sign-in-navbar > form .error .help-inline { display: inline-block; }
 #sign-in-navbar > form .controls > * { margin-left: 5px; }
 
-#sign-up-main > .third-party > .btn { margin-top: 2px; }
+#sign-up-main > .divider { margin: 5px 0; text-align: center; }
+#sign-up-main > .third-party > div { margin-top: 2px; }
 
 #accounts form label { margin-right: 5px; }
 #accounts form .controls { display: inline-block; margin-right: 5px; }

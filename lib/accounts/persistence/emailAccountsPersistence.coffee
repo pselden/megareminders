@@ -17,11 +17,18 @@ exports.getEmailAccountByUserId = (userId, callback) ->
 	db.query query, callback
 
 # creates an email account
-exports.createEmailAccount = (userId, email, passwordHash, callback) ->
+exports.createEmailAccount = (userId, email, passwordHash, verificationCode, callback) ->
 	query =
 		name: 'create email account'
-		text: 'INSERT INTO email_accounts (email, password_hash, user_id) VALUES ($1, $2, $3)'
-		values: [email, passwordHash, userId]
+		text: 'INSERT INTO email_accounts (email, password_hash, user_id, verification_code) VALUES ($1, $2, $3, $4)'
+		values: [email, passwordHash, userId, verificationCode]
+	db.query query, callback
+
+exports.deleteEmailAccount = (email, callback) ->
+	query =
+		name: 'delete email account'
+		text: 'DELETE FROM email_accounts WHERE email = $1'
+		values: [email]
 	db.query query, callback
 
 # marks the email account as verified

@@ -2,6 +2,7 @@ express = require 'express'
 app = module.exports = express.createServer()
 middleware = require './lib/middleware'
 routes = require './routes'
+dateformat = require 'dateformat'
 
 app.configure () ->
 	app.set 'views', "#{__dirname}/views"
@@ -18,6 +19,12 @@ app.configure () ->
 	app.use express.errorHandler { dumpExceptions: true, showStack: true }
 
 routes.register app
+
+helpers =
+	formatter :
+		date: dateformat
+
+app.helpers helpers
 
 process.on 'uncaughtException', (err) ->
 	console.log err.stack || err

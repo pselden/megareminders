@@ -15,6 +15,8 @@ exports.register = (app) ->
 	registerRoute 'get', '/accounts', middleware.routes.requireSignin(true), controllers.accounts.index
 	registerRoute 'post', '/accounts/:type', middleware.routes.requireSignin(true), controllers.accounts.create
 	registerRoute 'delete', '/accounts/:type/:id', middleware.routes.requireSignin(true), controllers.accounts.destroy
+	registerRoute 'get', '/accounts/email/:email/verify/:code', controllers.accounts.verifyEmailAccount
+	registerRoute 'get', '/accounts/email/:email/deny/:code', controllers.accounts.denyEmailAccount
 
 	# users
 	registerRoute 'post', '/signup', controllers.users.create

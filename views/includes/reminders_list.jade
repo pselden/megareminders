@@ -1,3 +1,6 @@
 ol
 	each reminder in reminders
-		li #{reminder.what} on #{reminder.when}
+		li.reminder(class=reminder.reminder_types) #{reminder.what} on #{formatter.date(reminder.when, 'dddd, mmmm dS')}
+			i.icon-envelope.email
+			i.icon-facebook-sign.twitter
+			i.icon-twitter-sign.twitter

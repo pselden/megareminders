@@ -2,13 +2,20 @@ reminderStrategies = require './reminderStrategies'
 persistence = require '../persistence'
 async = require 'async'
 
+exports.getReminderByReminderId = (reminderId, callback) ->
+	persistence.reminders.getReminderByReminderId reminderId, (err, results) ->
+		if err
+			callback err
+		else
+			callback null, parseRow results.rows[0]
+
 # gets upcoming reminders for the user
 exports.getUpcomingReminders = (userId, limit, offset, callback) ->
 	persistence.reminders.getUpcomingReminders userId, limit, offset, (err, results) ->
 		if err
 			callback err
 		else
-			callback null, results.rows
+			callback null, parseRows results.rows
 
 # creates a reminder for the given user
 exports.createReminder = (userId, reminder, callback) ->
@@ -38,10 +45,13 @@ exports.getRemindersToSend = (limit, callback) ->
 
 parseRows = (rows) ->
 	reminders = rows.map (row) ->
-		reminder = row
-		reminderTypes = reminder.reminder_types
-		reminderTypes = reminderTypes.substring 1, reminderTypes.length - 1
-		reminder.reminder_types = reminderTypes.split(',')
-		return reminder
-
+		return parseRow row
 	return reminders
+
+parseRow = (row) ->
+	return null if !row
+	reminder = row
+	reminderTypes = reminder.reminder_types
+	reminderTypes = reminderTypes.substring 1, reminderTypes.length - 1
+	reminder.reminder_types = reminderTypes.split(',')
+	return reminder

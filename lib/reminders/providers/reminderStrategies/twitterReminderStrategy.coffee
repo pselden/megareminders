@@ -9,7 +9,7 @@ exports.sendReminder = (reminder, callback) ->
 				secret: twitterAccount.token_secret
 
 			twitterId = twitterAccount.twitter_id
-			text = "Reminder: #{reminder.what} on #{reminder.when}" #TODO -- 140 chars?
+			text = "MegaReminder: #{reminder.what} on #{dateformat reminder.when, 'dddd, mmmm dS'}" #TODO -- 140 chars?
 			thirdPartyProviders.twitter.sendDirectMessage token, twitterId, text, callback
 		else
 			callback null, null

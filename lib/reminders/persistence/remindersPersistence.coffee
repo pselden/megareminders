@@ -1,5 +1,12 @@
 db = require '../../db'
 
+exports.getReminderByReminderId = (reminderId, callback) ->
+	query =
+		name: 'get reminder by reminder id'
+		text: 'SELECT * FROM reminders WHERE reminder_id = $1 LIMIT 1'
+		values: [reminderId]
+	db.query query, callback
+
 exports.getUpcomingReminders = (userId, limit, offset, callback) ->
 	query =
 		name: 'get upcoming reminders'

@@ -6,10 +6,10 @@ exports.statics = () ->
 		}
 
 		res.addScript = (scripts...) ->
-			req.statics.scripts.push "js/#{s}.js" for s in scripts
+			req.statics.scripts.push "/js/#{s}.js" for s in scripts
 
 		res.addCss = (css...) ->
-			req.statics.css.push "css/#{c}.css" for c in css
+			req.statics.css.push "/css/#{c}.css" for c in css
 
 		next()
 
