@@ -22,8 +22,8 @@ exports.createEmailAccount = (userId, email, password, verificationCode, callbac
 	try
 		validator.check(email, 'Invalid email.').isEmail();
 		validator.check(password, 'Invalid password.').notEmpty();
-		bcrypt.gen_salt 10, (err, salt) ->
-			bcrypt.encrypt password, salt, (err, hash) ->
+		bcrypt.genSalt 10, (err, salt) ->
+			bcrypt.hash password, salt, (err, hash) ->
 				persistence.emailAccounts.createEmailAccount userId, email, hash, verificationCode, callback
 	catch err
 		callback err
