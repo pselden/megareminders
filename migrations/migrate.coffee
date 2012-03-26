@@ -17,8 +17,10 @@ getVersion = (callback) ->
 		text: 'SELECT version FROM _metadata LIMIT 1'
 	db.query query, (err, results) ->
 		if err
+			console.log err
 			callback err
 		else
+			console.log results
 			callback null, results.rows[0].version
 
 # sets the current schema version
