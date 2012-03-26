@@ -17,10 +17,8 @@ getVersion = (callback) ->
 		text: 'SELECT version FROM _metadata LIMIT 1'
 	db.query query, (err, results) ->
 		if err
-			console.log err
 			callback err
 		else
-			console.log results
 			callback null, results.rows[0].version
 
 # sets the current schema version
@@ -139,9 +137,7 @@ onMigrationFinish = (err) ->
 run = () ->
 	console.log 'running migrations'
 	prepareMetadata () ->
-		console.log 'here'
 		mode = process.argv[process.argv.length-1]
-		console.log mode
 		switch mode
 			when "rollback" then rollback onMigrationFinish
 			when "down" then down onMigrationFinish
