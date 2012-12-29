@@ -2,7 +2,7 @@ form#create-reminder-main.form-inline.alert.alert-success
 	fieldset
 		.control-group
 			input(type="text",name="title",placeholder="What do you need to remember?")
-			button.btn.btn-primary.btn-large.create Create Reminder
+			button.btn.btn-primary.btn-large.create(type="submit") Create Reminder
 
 #create-reminder-details-dialog.modal.fade.hide
 	header.modal-header
@@ -25,11 +25,12 @@ form#create-reminder-main.form-inline.alert.alert-success
 							each val in [1,2,3,4,5,6,7,8,9,10,11,12]
 								option(value="#{val}") #{val}
 						select.span1(name="minutes")
-							each val in [0, 15, 30, 45]
-								option(value="#{val}") #{val}
+							each val in ['00', 15, 30, 45]
+								option(value="#{Number(val)}") #{val}
 						select.span1(name="amPm")
 							option(value="AM") AM
 							option(value="PM") PM
+						input(name="date",type="hidden")
 
 
 				.control-group

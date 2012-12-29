@@ -6,6 +6,8 @@ exports.create = (req, res) ->
 	sessionsProviders.signin.signIn credentials, signinType, (err, account) ->
 		if account
 			sessionsProviders.sessions.createSession res, account.user_id
+		else
+
 
 		res.redirect '/'
 

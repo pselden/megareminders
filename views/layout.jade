@@ -3,9 +3,10 @@ html
 	head
 		include includes/head
 	body
-		include includes/navbar
-		#container.container
-			.row
-				.span12!= body
-		include includes/footer
-		include includes/scripts
+		#wrap.container
+			include includes/navbar
+			#container.container
+				.row
+					.span12!= body
+			include includes/footer
+			include includes/scripts

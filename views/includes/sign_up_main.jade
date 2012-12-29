@@ -1,4 +1,5 @@
 #sign-up-main.well
+	h3 Sign up
 	form(action="/signup?type=email",method="POST")
 		fieldset
 			.control-group
@@ -14,11 +15,9 @@
 					button.btn.btn-primary(type="submit") Sign Up
 	.divider OR
 	.third-party
-		div
-			a.facebook.btn.btn-smooth.btn-dark(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
-				i.icon-facebook-sign.icon-large.icon-left
-				| Sign up with Facebook
-		div
-			a.twitter.btn.btn-smooth.btn-dark(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
-				i.icon-twitter-sign.icon-large.icon-left
-				| Sign up with Twitter
+		a.facebook.btn.btn-smooth(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
+			i.icon-facebook-sign.icon-large.icon-left
+			| Facebook
+		a.twitter.btn.btn-smooth(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
+			i.icon-twitter-sign.icon-large.icon-left
+			| Twitter

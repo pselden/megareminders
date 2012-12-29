@@ -8,10 +8,11 @@ exports.homeSignedOut = (req, res, next) ->
 
 exports.homeSignedIn = (req, res, next) ->
 	req.pageName = 'home'
+	res.addScript('chrono.min')
 	res.addScript('home')
 	tasks = {}
 	tasks.getUpcomingReminders = (callback) ->
-		remindersProviders.reminders.getUpcomingReminders req.currentUser.user_id, 5, 0, callback
+		remindersProviders.reminders.getUpcomingReminders req.currentUser.user_id, 10, 0, callback
 
 	tasks.getAccounts = (callback) ->
 		accountsProviders.accountsHelper.getAccounts req.currentUser.user_id, callback

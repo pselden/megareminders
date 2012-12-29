@@ -7,11 +7,7 @@ exports.create = (req, res) ->
 
 newReminder = (req) ->
 	body = req.body
-	body.hours = Number body.hours
-	body.minutes = Number body.minutes
-	if body.amPm == "PM" then body.hours = Number(body.hours) + 12
-	date = new Date body.when
-	reminderWhen = new Date date.getFullYear(), date.getMonth(), date.getDate(), body.hours, body.minutes
+	reminderWhen = new Date body.date
 	reminderTime = new Date (reminderWhen.getTime() - (body.reminderOffset * 60 * 1000))
 	reminderTypes = body.reminderTypes or []
 	reminderTypes = if Array.isArray(reminderTypes) then reminderTypes else [reminderTypes]

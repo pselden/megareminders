@@ -1,6 +1,11 @@
 #sign-in-navbar
+	.third-party.pull-right
+		a.facebook.btn.btn-smooth.btn-dark(title="Sign in with Facebook",href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
+			i.icon-facebook-sign
+		a.twitter.btn.btn-smooth.btn-dark(title="Sign in with Twitter",href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
+			i.icon-twitter-sign
 	form.navbar-form.form-inline.pull-right(method="POST",action="/signin?type=email")
-		.control-group
+		div
 			.controls
 				strong.help-inline Invalid email/password.
 				.input-prepend
@@ -12,8 +17,3 @@
 						i.icon-key
 					input.span2(type="password",name="password",placeholder="Password",required)
 				button.btn.btn-mini(type="submit") Sign In
-	.third-party.pull-right
-		a.facebook.btn.btn-smooth.btn-dark(title="Sign in with Facebook",href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
-			i.icon-facebook-sign
-		a.twitter.btn.btn-smooth.btn-dark(title="Sign in with Twitter",href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
-			i.icon-twitter-sign
