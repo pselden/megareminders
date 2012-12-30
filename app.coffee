@@ -1,35 +1,28 @@
 express = require 'express'
-app = module.exports = express.createServer()
+app = module.exports = express()
 middleware = require './lib/middleware'
 routes = require './routes'
-dateformat = require 'dateformat'
 
 app.configure () ->
-	app.set 'views', "#{__dirname}/views"
-	app.set 'view engine', 'jade'
-	app.set 'view options', { 'with': 'locals' }
-	app.use express.methodOverride()
-	app.use express.cookieParser()
-	app.use express.bodyParser()
-	app.use express.static "#{__dirname}/public"
-	app.use middleware.statics.statics()
-	app.use middleware.statics.globalStatics()
-	app.use middleware.currentUser()
-	app.use app.router
-	app.use express.errorHandler { dumpExceptions: true, showStack: true }
+  app.set 'views', "#{__dirname}/views"
+  app.set 'view engine', 'jade'
+  app.use express.methodOverride()
+  app.use express.cookieParser()
+  app.use express.bodyParser()
+  app.use express.static "#{__dirname}/public"
+  app.use middleware.statics.statics()
+  app.use middleware.statics.globalStatics()
+  app.use middleware.currentUser()
+  app.use middleware.helpers()
+  app.use app.router
+  app.use express.errorHandler { dumpExceptions: true, showStack: true }
 
 routes.register app
-
-helpers =
-	formatter :
-		date: dateformat
-
-app.helpers helpers
 
 process.on 'uncaughtException', (err) ->
 	console.log err.stack || err
 
 app.listen process.env.PORT || 80
 
-console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
+console.log "Express server started"
 

@@ -1,34 +1,37 @@
-#sign-up-heading.row
-	.span12
-		h2 Sign up
-#sign-up-options.row
-	.span4
-		h3 Email
-		p Sign up with your email address to have reminders emailed to you.
-		form(action="/signup?type=email",method="POST")
-			fieldset
-				.control-group
-					label.control-label(for="sign-up-email") Email
-					.controls
-						input#sign-up-email(name="email",type="email",placeholder="Email",required)
-				.control-group
-					label.control-label(for="sign-up-password) Password
-					.controls
-						input#sign-up-password(name="password",type="password",placeholder="New password",required)
-				.control-group.sign-up-action
-					.controls
-						button.btn.btn-primary(type="submit") Sign Up with Email
-	.span4
-		h3 Facebook
-		p Sign up with Facebook to have reminders sent as Facebook notifications.
-		p.sign-up-action
-			a.facebook.btn.btn-smooth(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
-				i.icon-facebook-sign.icon-large.icon-left
-				| Sign Up with Facebook
-	.span4
-		h3 Twitter
-		p Sign up with Twitter to have reminders sent as Twitter direct messages.
-		p.sign-up-action
-			a.twitter.btn.btn-smooth(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
-				i.icon-twitter-sign.icon-large.icon-left
-				| Sign Up with Twitter
+extends layout
+
+block main
+	#sign-up-heading.row
+		.span12
+			h2 Sign up
+	#sign-up-options.row
+		.span4
+			h3 Email
+			p Sign up with your email address to have reminders emailed to you.
+			form(action="/signup?type=email",method="POST")
+				fieldset
+					.control-group
+						label.control-label(for="sign-up-email") Email
+						.controls
+							input#sign-up-email(name="email",type="email",placeholder="Email",required)
+					.control-group
+						label.control-label(for="sign-up-password) Password
+						.controls
+							input#sign-up-password(name="password",type="password",placeholder="New password",required)
+					.control-group.sign-up-action
+						.controls
+							button.btn.btn-primary(type="submit") Sign Up with Email
+		.span4
+			h3 Facebook
+			p Sign up with Facebook to have reminders sent as Facebook notifications.
+			p.sign-up-action
+				a.facebook.btn.btn-smooth(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
+					i.icon-facebook-sign.icon-large.icon-left
+					| Sign Up with Facebook
+		.span4
+			h3 Twitter
+			p Sign up with Twitter to have reminders sent as Twitter direct messages.
+			p.sign-up-action
+				a.twitter.btn.btn-smooth(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
+					i.icon-twitter-sign.icon-large.icon-left
+					| Sign Up with Twitter

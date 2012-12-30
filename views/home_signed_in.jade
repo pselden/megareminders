@@ -1,17 +1,20 @@
-.row
-	.span12
-		.alert.alert-info
-			a.close x
-			h4.alert-heading Valentine's Day
-			div	Valentine's Day is coming soon!&nbsp;
-				a.quick-reminder(data-what="Valentine's Day",data-date="February 14, 2013 12:00:00",data-reminder-offset="1440",href="#")	Create a reminder so you don't forget!
+extends layout
 
-.row
-	.span12
-		include includes/create_reminder_main
+block main
+	.row
+		.span12
+			.alert.alert-info
+				a.close x
+				h4.alert-heading Valentine's Day
+				div	Valentine's Day is coming soon!&nbsp;
+					a.quick-reminder(data-what="Valentine's Day",data-date="February 14, 2013 12:00:00",data-reminder-offset="1440",href="#")	Create a reminder so you don't forget!
 
-.row
-	.span8
-		include includes/upcoming_reminders
-	.span4
-		include includes/advertisements
+	.row
+		.span12
+			include includes/create_reminder_main
+
+	.row
+		.span8
+			include includes/upcoming_reminders
+		.span4
+			include includes/advertisements

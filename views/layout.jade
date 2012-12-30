@@ -2,9 +2,12 @@ doctype html
 html
 	head
 		include includes/head
+		block head
 	body
 		#wrap.container
 			include includes/navbar
-			#container.container!= body
+			#container.container
+				block main
 			include includes/footer
 			include includes/scripts
+			block scripts

@@ -1,59 +1,62 @@
-.row
-	#accounts.span12
-		h1 Accounts
-		.email
-			h2
-				i.icon-envelope
-				|  Email
-			.account-details
-				- if (accounts.email)
-					span Email: #{accounts.email.email}
-				- else
-					.connect
-						p You don't have an email account connected yet...
-						form.well.form-inline(action="/accounts/email",method="POST")
-							.control-group
-								label.control-label(for="email") Email
-								.controls
-									input#email(type="email",name="email",placeholder="Email")
-								label.control-label(for="password) Password
-								.controls
-									input#password(type="password",name="password",placeholder="Password")
-								button.btn(type="submit") Connect
+extends ../layout
 
-		.facebook
-			h2
-				i.icon-facebook-sign
-				|  Facebook
-			.account-details
-				- if(accounts.facebook)
-					span Facebook Id: #{accounts.facebook.facebook_id}
-				- else
-					.connect
-						p You don't have a Facebook account connected yet...
-							a.btn.facebook.btn-smooth.connect-btn(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fconnect")
-								i.icon-facebook-sign.icon-large.icon-left
-								| Connect with Facebook
-		.twitter
-			h2
-				i.icon-twitter-sign
-				|  Twitter
-			.account-details
-				- if(accounts.twitter)
-					span Twitter Id: #{accounts.twitter.twitter_id}
-				- else
-					.connect
-						p You don't have a Twitter account connected yet...
-							a.btn.twitter.btn-smooth.connect-btn(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fconnect")
-								i.icon-large.icon-twitter-sign.icon-left
-								| Connect with Twitter
-		.sms
-			h2
-				i.icon-list-alt
-				|  SMS
-			.account-details
-				- if(accounts.sms)
-					span Number: #{accounts.sms.phone_number}
-				- else
-					.connect
-						p Coming soon!
+block main
+	.row
+		#accounts.span12
+			h1 Accounts
+			.email
+				h2
+					i.icon-envelope
+					|  Email
+				.account-details
+					- if (accounts.email)
+						span Email: #{accounts.email.email}
+					- else
+						.connect
+							p You don't have an email account connected yet...
+							form.well.form-inline(action="/accounts/email",method="POST")
+								.control-group
+									label.control-label(for="email") Email
+									.controls
+										input#email(type="email",name="email",placeholder="Email")
+									label.control-label(for="password) Password
+									.controls
+										input#password(type="password",name="password",placeholder="Password")
+									button.btn(type="submit") Connect
+
+			.facebook
+				h2
+					i.icon-facebook-sign
+					|  Facebook
+				.account-details
+					- if(accounts.facebook)
+						span Facebook Id: #{accounts.facebook.facebook_id}
+					- else
+						.connect
+							p You don't have a Facebook account connected yet...
+								a.btn.facebook.btn-smooth.connect-btn(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fconnect")
+									i.icon-facebook-sign.icon-large.icon-left
+									| Connect with Facebook
+			.twitter
+				h2
+					i.icon-twitter-sign
+					|  Twitter
+				.account-details
+					- if(accounts.twitter)
+						span Twitter Id: #{accounts.twitter.twitter_id}
+					- else
+						.connect
+							p You don't have a Twitter account connected yet...
+								a.btn.twitter.btn-smooth.connect-btn(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fconnect")
+									i.icon-large.icon-twitter-sign.icon-left
+									| Connect with Twitter
+			.sms
+				h2
+					i.icon-list-alt
+					|  SMS
+				.account-details
+					- if(accounts.sms)
+						span Number: #{accounts.sms.phone_number}
+					- else
+						.connect
+							p Coming soon!

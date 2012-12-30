@@ -4,7 +4,7 @@ middleware = require './lib/middleware'
 exports.register = (app) ->
   registerRoute = (method, path, middleware..., action) ->
     app[method] path, middleware, (req, res, next) ->
-      res.local 'req', req
+      res.locals.req = req
       action req, res, next
 
   # home
