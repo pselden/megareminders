@@ -10,7 +10,9 @@ header.navbar.navbar-inverse
 						a(href="/accounts") Accounts
 				ul.nav.pull-right
 					li
-						a#sign-out(href="/signout") Sign Out
+						a#sign-out(href="/signout") Log Out
 			- else
-				include sign_in_navbar
+				ul.nav.pull-right
+					li
+						a#sign-in(href="/signin") Log In
 

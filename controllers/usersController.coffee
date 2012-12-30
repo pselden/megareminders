@@ -10,3 +10,9 @@ exports.create = (req, res) ->
 		else
 			sessionProviders.sessions.createSession res, newUser.user_id
 		res.redirect '/'
+
+exports.signUp = (req, res) ->
+  if req.isSignedIn
+    res.redirect '/'
+  else
+    res.render 'signup'

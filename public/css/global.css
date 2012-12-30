@@ -12,6 +12,20 @@ body {
 }
 
 /* Home */
+#home-hero {
+
+}
+
+#home-cta {
+    position: relative;
+    top: -80px;
+}
+
+#home-cta strong {
+    font-size: 16px;
+    margin-right: 40px;
+}
+
 #upcoming-reminders .reminder > i {
 	display: none;
 	margin-left: 2px;
@@ -134,12 +148,12 @@ body {
 }
 
 .btn.facebook {
-	background-color: #3B5998;
+	background: #3B5998;
 	color: #FFF;
 }
 
 .btn.twitter {
-	background-color: #9AE4E8;
+	background: #9AE4E8;
 	color: #FFF;
 }
 
@@ -154,4 +168,30 @@ body {
 /* bootstrap changes */
 .navbar .brand {
 	color: #FFF;
+}
+
+/* signup */
+#sign-up-heading h2 {
+    border-bottom: 1px dashed #CCC;
+    padding-bottom: 10px
+}
+
+#sign-up-options > div {
+    box-sizing: border-box;
+    padding:10px;
+    border-right: 1px dotted #CCC;
+    height: 300px;
+}
+
+#sign-up-options > div:last-child {
+    border-right: none;
+}
+
+#sign-up-options > div > h3 {
+    color: rgb(90,90,90);
+    text-align: center;
+}
+
+#sign-up-options > div .sign-up-action {
+    text-align: center;
 }

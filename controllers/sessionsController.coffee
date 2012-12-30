@@ -1,5 +1,11 @@
 sessionsProviders = require '../lib/session/providers'
 
+exports.signIn = (req, res) ->
+  if req.isSignedIn
+    res.redirect '/'
+  else
+    res.render 'signin'
+
 exports.create = (req, res) ->
 	credentials = req.body
 	signinType = req.query.type
@@ -7,7 +13,6 @@ exports.create = (req, res) ->
 		if account
 			sessionsProviders.sessions.createSession res, account.user_id
 		else
-
 
 		res.redirect '/'
 

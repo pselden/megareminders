@@ -5,8 +5,6 @@ html
 	body
 		#wrap.container
 			include includes/navbar
-			#container.container
-				.row
-					.span12!= body
+			#container.container!= body
 			include includes/footer
 			include includes/scripts
