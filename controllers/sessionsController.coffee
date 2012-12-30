@@ -4,6 +4,7 @@ exports.signIn = (req, res) ->
   if req.isSignedIn
     res.redirect '/'
   else
+    req.pageName = 'signin'
     res.render 'signin'
 
 exports.create = (req, res) ->

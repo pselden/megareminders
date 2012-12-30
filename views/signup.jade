@@ -1,9 +1,8 @@
 extends layout
 
 block main
-	#sign-up-heading.row
-		.span12
-			h2 Sign up
+	header.page-title
+		h2 Sign up
 	#sign-up-options.row
 		.span4
 			h3 Email
@@ -13,11 +12,11 @@ block main
 					.control-group
 						label.control-label(for="sign-up-email") Email
 						.controls
-							input#sign-up-email(name="email",type="email",placeholder="Email",required)
+							input#sign-up-email.input-block-level(name="email",type="email",placeholder="Email")
 					.control-group
-						label.control-label(for="sign-up-password) Password
+						label.control-label(for="sign-up-password") Password
 						.controls
-							input#sign-up-password(name="password",type="password",placeholder="New password",required)
+							input#sign-up-password.input-block-level(name="password",type="password",placeholder="New password")
 					.control-group.sign-up-action
 						.controls
 							button.btn.btn-primary(type="submit") Sign Up with Email

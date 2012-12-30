@@ -4,10 +4,9 @@ html
 		include includes/head
 		block head
 	body
-		#wrap.container
-			include includes/navbar
-			#container.container
-				block main
-			include includes/footer
-			include includes/scripts
-			block scripts
+		include includes/navbar
+		#main.container
+			block main
+		include includes/footer
+		include includes/scripts
+		block scripts

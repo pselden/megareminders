@@ -15,4 +15,5 @@ exports.signUp = (req, res) ->
   if req.isSignedIn
     res.redirect '/'
   else
+    req.pageName = 'signup'
     res.render 'signup'

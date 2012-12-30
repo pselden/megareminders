@@ -3,11 +3,11 @@ body {
 	background-color: #EEE;
 }
 
-#wrap {
-	padding: 10px;
+#main {
 	background-color: #FFF;
 	background-color: rgba(255, 255, 255, 0.9);
-	border-radius: 0 0 5px 5px;
+    padding:10px;
+	border-radius: 5px;
 	border: 1px solid #CCC;
 }
 
@@ -170,12 +170,6 @@ body {
 	color: #FFF;
 }
 
-/* signup */
-#sign-up-heading h2 {
-    border-bottom: 1px dashed #CCC;
-    padding-bottom: 10px
-}
-
 #sign-up-options > div {
     box-sizing: border-box;
     padding:10px;
@@ -194,4 +188,10 @@ body {
 
 #sign-up-options > div .sign-up-action {
     text-align: center;
+}
+
+/* global styles */
+header.page-title {
+    border-bottom: 1px dashed #CCC;
+    padding-bottom: 10px
 }

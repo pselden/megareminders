@@ -12,7 +12,11 @@ header.navbar.navbar-inverse
 					li
 						a#sign-out(href="/signout") Log Out
 			- else
+				ul.nav
+					li(li(class=req.pageName == 'home' ? 'active' : '')
+						a(href="/") Home
 				ul.nav.pull-right
-					li
+					li(class=req.pageName == 'signin' ? 'active' : '')
 						a#sign-in(href="/signin") Log In
-
+					li(class=req.pageName == 'signup' ? 'active' : '')
+						a#sign-up(href="/signup") Sign Up
