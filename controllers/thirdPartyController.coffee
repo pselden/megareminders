@@ -15,11 +15,11 @@ exports.authenticate = (req, res) ->
 	api.getAccessToken req, (err, token) ->
 		authenticate service, token, (err, account) ->
 			if account # sign them in!
-				sessionProviders.sessions.createSession res, account.user_id
+				sessionProviders.sessions.createSession req, account.user_id
 				res.redirect '/'
 			else # TODO: prompt if they want to make a new account or connect it to another account
 				signup service, token, (err, account) ->
-					sessionProviders.sessions.createSession res, account.user_id
+					sessionProviders.sessions.createSession req, account.user_id
 					res.redirect '/'
 
 exports.connectAccount = (req, res) ->

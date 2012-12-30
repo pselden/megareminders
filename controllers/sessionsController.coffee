@@ -12,11 +12,10 @@ exports.create = (req, res) ->
 	signinType = req.query.type
 	sessionsProviders.signin.signIn credentials, signinType, (err, account) ->
 		if account
-			sessionsProviders.sessions.createSession res, account.user_id
-		else
+			sessionsProviders.sessions.createSession req, account.user_id
 
 		res.redirect '/'
 
 exports.destroy = (req, res) ->
-	sessionsProviders.sessions.destroySession res
+	sessionsProviders.sessions.destroySession req
 	res.redirect '/'

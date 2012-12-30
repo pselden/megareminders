@@ -21,4 +21,7 @@ config.production.facebook =
 	applicationId: '381744965182982'
 	applicationSecret: 'b8b43750129b6a06081534e1e6c65f3b'
 
+config.development.cookieSecret = 'm4hc00kies4res4f3fr0mYOU'
+config.production.cookieSecret = '!OnJJqg19YRr#y0qoEIXb6rJ'
+
 module.exports = config[process.env.NODE_ENV] || config.development

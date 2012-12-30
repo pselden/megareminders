@@ -8,7 +8,7 @@ exports.create = (req, res) ->
 		if err
 			console.log err
 		else
-			sessionProviders.sessions.createSession res, newUser.user_id
+			sessionProviders.sessions.createSession req, newUser.user_id
 		res.redirect '/'
 
 exports.signUp = (req, res) ->
