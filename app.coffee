@@ -12,6 +12,7 @@ app.configure () ->
   app.use express.cookieParser()
   app.use express.cookieSession { key: 'session', secret: config.cookieSecret, proxy: true }
   app.use express.bodyParser()
+  app.use express.query()
   app.use express.static "#{__dirname}/public"
   app.use middleware.statics.statics()
   app.use middleware.statics.globalStatics()
