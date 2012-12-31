@@ -181,6 +181,10 @@ body {
     margin-left: 120px;
 }
 
+#create-reminder-details-dialog .spacer {
+    margin: 0 5px;
+}
+
 /* global styles */
 header.page-title {
     border-bottom: 1px dashed #CCC;

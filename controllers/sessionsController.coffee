@@ -13,8 +13,9 @@ exports.create = (req, res) ->
   sessionsProviders.signin.signIn credentials, signinType, (err, account) ->
     if account
       sessionsProviders.sessions.createSession req, account.user_id
-
-    res.redirect '/'
+      res.redirect '/'
+    else
+      res.redirect '/signin'
 
 exports.destroy = (req, res) ->
   sessionsProviders.sessions.destroySession req
