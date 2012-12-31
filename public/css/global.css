@@ -45,58 +45,14 @@ body {
 	padding-left: 20px;
 	height: 40px;
 	font-size: 26px;
-	line-height: 26px;
+	line-height: 40px;
 	width: 690px;
+    border-radius: 0;
 }
 
 #create-reminder-main button.create {
 	height: 50px;
 	border-radius: 0 5px 5px 0;
-}
-
-/* sign in navbar */
-#sign-in-navbar > .third-party {
-	margin-left: 10px;
-}
-#sign-in-navbar > .third-party .btn {
-	font-size: 24px;
-	line-height: 1em;
-	padding: 2px 4px;
-}
-
-#sign-in-navbar > form .input-prepend {
-	width: 170px;
-}
-
-#sign-in-navbar > form .help-inline {
-	display: none;
-}
-
-#sign-in-navbar .btn {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-#sign-in-navbar > form .error .help-inline {
-	display: inline-block;
-}
-
-/* sign up main */
-#sign-up-main > .divider {
-	margin: 5px 0;
-	text-align: center;
-}
-
-#sign-up-main > .third-party > div {
-	margin-top: 2px;
-}
-
-#sign-up-main > .third-party {
-	text-align: center;
-}
-
-#sign-up-main > .third-party .btn {
-	width: 90px; text-align: left; margin-right: 5px;
 }
 
 /* accounts */
@@ -170,6 +126,7 @@ body {
 	color: #FFF;
 }
 
+/* sign up */
 #sign-up-options > div {
     box-sizing: border-box;
     padding:10px;
@@ -190,8 +147,32 @@ body {
     text-align: center;
 }
 
+/* sign in */
+#sign-in-form .divider {
+    margin: 5px 0;
+    text-align: center;
+}
+
+#sign-in-form .third-party > div {
+    text-align: center;
+    margin-top:5px;
+}
+
+#sign-in-form .third-party .btn {
+    width: 185px;
+}
+
+#create-reminder-details-dialog .control-label {
+    width: 100px;
+}
+
+#create-reminder-details-dialog .controls {
+    margin-left: 120px;
+}
+
 /* global styles */
 header.page-title {
     border-bottom: 1px dashed #CCC;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    margin-bottom:10px;
 }

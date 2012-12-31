@@ -1,13 +1,23 @@
-form(action="/signin?signinType=email",method="POST")
+form#sign-in-form.well(action="/signin?type=email",method="POST")
 	fieldset
 		.control-group
 			label.control-label(for="sign-in-email") Email
 			.controls
-				input#sign-in-email(name="email",type="text")
+				input#sign-in-email.input-block-level(name="email",type="email",placeholder="Email")
 		.control-group
-			label.control-label(for="sign-in-password) Password
+			label.control-label(for="sign-in-password") Password
 			.controls
-				input#sign-in-password(name="password",type="password")
+				input#sign-in-password.input-block-level(name="password",type="password",placeholder="Password")
 		.control-group
 			.controls
-				button.btn.btn-primary(type="submit") Sign In
+				button.btn.btn-primary(type="submit") Log in
+	.divider OR
+	.third-party
+		div
+			a.facebook.btn.btn-smooth(title="Log in with Facebook",href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
+				i.icon-facebook-sign.icon-large.icon-left
+				| Log in with Facebook
+		div
+			a.twitter.btn.btn-smooth(title="Log in with Twitter",href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
+				i.icon-twitter-sign.icon-large.icon-left
+				| Log in with Twitter

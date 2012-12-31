@@ -5,19 +5,21 @@
 			.control-group
 				label.control-label(for="sign-up-email") Email
 				.controls
-					input#sign-up-email(name="email",type="email",required)
+					input#sign-up-email.input-block-level(name="email",type="email",required)
 			.control-group
-				label.control-label(for="sign-up-password) Password
+				label.control-label(for="sign-up-password") Password
 				.controls
-					input#sign-up-password(name="password",type="password",required)
+					input#sign-up-password.input-block-level(name="password",type="password",required)
 			.control-group
 				.controls
 					button.btn.btn-primary(type="submit") Sign Up
 	.divider OR
 	.third-party
-		a.facebook.btn.btn-smooth(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
-			i.icon-facebook-sign.icon-large.icon-left
-			| Facebook
-		a.twitter.btn.btn-smooth(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
-			i.icon-twitter-sign.icon-large.icon-left
-			| Twitter
+		div
+			a.facebook.btn.btn-smooth(href="/thirdparty/facebook/authorize?redirectUrl=%2Fthirdparty%2Ffacebook%2Fauthenticate")
+				i.icon-facebook-sign.icon-large.icon-left
+				| Facebook
+		div
+			a.twitter.btn.btn-smooth(href="/thirdparty/twitter/authorize?redirectUrl=%2Fthirdparty%2Ftwitter%2Fauthenticate")
+				i.icon-twitter-sign.icon-large.icon-left
+				| Twitter
