@@ -185,6 +185,10 @@ body {
     margin: 0 5px;
 }
 
+#create-reminder-details-dialog .when-controls select {
+    margin-right: 2px;
+}
+
 /* global styles */
 header.page-title {
     border-bottom: 1px dashed #CCC;

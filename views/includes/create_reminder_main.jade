@@ -14,9 +14,9 @@ form#create-reminder-main.form-inline.alert.alert-success
 				.control-group
 					label.control-label(for="reminder-details-what") What
 					.controls
-						input.#reminder-details-what.input-block-level(type="text",name="what")
+						input#reminder-details-what.input-block-level(type="text",name="what")
 
-				.control-group
+				.control-group.when-controls
 					label.control-label When
 					.controls
 						input.span2(name="when")
@@ -36,7 +36,7 @@ form#create-reminder-main.form-inline.alert.alert-success
 				.control-group
 					label.control-label Remind Me
 					.controls
-						select(name="reminderOffset")
+						select.input-block-level(name="reminderOffset")
 							option(value="0") 0 minutes before
 							option(value="5") 5 minutes before
 							option(value="15") 15 minutes before
