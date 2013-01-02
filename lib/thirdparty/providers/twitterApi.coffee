@@ -16,7 +16,7 @@ module.exports = (consumerKey, consumerSecret) ->
 	rest_base = 'https://api.twitter.com/1'
 
 	getRequestToken = (req, res, redirectUrl, callback) ->
-		protocol = if req.socket.encrypted then 'https' else 'http'
+		protocol = req.protocol
 		callbackUrl = "#{protocol}://#{req.header 'host'}#{redirectUrl}"
 
 		oauth.getOAuthRequestToken { oauth_callback: callbackUrl }, (err, oauth_token) ->

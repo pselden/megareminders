@@ -1,75 +1,76 @@
 querystring = require('querystring')
 OAuth = require("oauth").OAuth2
-request = require('request');
+request = require('request')
+;
 
 module.exports = (appId, appSecret) ->
-	rest_base = 'https://graph.facebook.com'
-	oauth = new OAuth appId,
-		appSecret,
-		rest_base
+  rest_base = 'https://graph.facebook.com'
+  oauth = new OAuth appId, appSecret, rest_base
 
-	# authorizes the user for api requests
-	authorize = (req, res, redirectUrl, callback) ->
-		protocol = if req.socket.encrypted then 'https' else 'http'
-		callbackUrl = "#{protocol}://#{req.header 'host'}#{redirectUrl}"
+  # authorizes the user for api requests
+  authorize = (req, res, redirectUrl, callback) ->
+    protocol = req.protocol
+    callbackUrl = "#{protocol}://#{req.header 'host'}#{redirectUrl}"
 
-		options =
-            redirect_uri: callbackUrl
-            # scope: 'email' -- add this back in if we need some sort of scope
+    options =
+      redirect_uri: callbackUrl
+    # scope: 'email' -- add this back in if we need some sort of scope
 
-		res.redirect oauth.getAuthorizeUrl options
+    console.log options
 
-	getAccessToken = (req, callback) ->
-		protocol = if req.socket.encrypted then 'https' else 'http'
-		params =
-			redirect_uri: "#{protocol}://#{req.header 'host'}#{req.path}"
-		oauth.getOAuthAccessToken req.param('code'), params, (err, token) ->
-			callback err, { token: token }
+    res.redirect oauth.getAuthorizeUrl options
 
-	# makes a call to the facebook api
-	apiCall = (method, path, params, callback) ->
-		params.access_token = params.token.token if params.token
-		delete params.token
+  getAccessToken = (req, callback) ->
+    protocol = req.protocol
+    params =
+      redirect_uri: "#{protocol}://#{req.header 'host'}#{req.path}"
+    oauth.getOAuthAccessToken req.param('code'), params, (err, token) ->
+      callback err, { token: token }
 
-		request { method: method, uri: "#{rest_base}#{path}?#{querystring.stringify params}" }, (err, response, body) ->
-			data = null
-			try
-				data = JSON.parse body
-			catch e
-				err = e
-			callback err, data
+  # makes a call to the facebook api
+  apiCall = (method, path, params, callback) ->
+    params.access_token = params.token.token if params.token
+    delete params.token
 
-	# gets normalized user data
-	getUser = (token, callback) ->
-		getMeCallback = (err, profile) ->
-			if err
-				callback err
-			else
-				callback null, normalizeUser profile
+    request { method: method, uri: "#{rest_base}#{path}?#{querystring.stringify params}" }, (err, response, body) ->
+      data = null
+      try
+        data = JSON.parse body
+      catch e
+        err = e
+      callback err, data
 
-		normalizeUser = (profile) ->
-			return {
-				provider: 'Facebook',
-				externalId: profile.id
-				fullName: profile.name
-				username: profile.username
-				image: "http://graph.facebook.com/#{profile.id}/picture?type=large"
-			}
+  # gets normalized user data
+  getUser = (token, callback) ->
+    getMeCallback = (err, profile) ->
+      if err
+        callback err
+      else
+        callback null, normalizeUser profile
 
-		apiCall 'GET', '/me', { token: token }, getMeCallback
+    normalizeUser = (profile) ->
+      return {
+      provider: 'Facebook',
+      externalId: profile.id
+      fullName: profile.name
+      username: profile.username
+      image: "http://graph.facebook.com/#{profile.id}/picture?type=large"
+      }
 
-	# sends an application request to the user specified by the facebook id and access token
-	sendApplicationRequest = (token, facebookId, message, data, callback) ->
-		params =
-			token: token
-			message: message
-			data: data || ""
+    apiCall 'GET', '/me', { token: token }, getMeCallback
 
-		apiCall "POST", "/#{facebookId}/apprequests", params, callback
+  # sends an application request to the user specified by the facebook id and access token
+  sendApplicationRequest = (token, facebookId, message, data, callback) ->
+    params =
+      token: token
+      message: message
+      data: data || ""
 
-	return {
-		authorize : authorize
-		getAccessToken : getAccessToken
-		getUser: getUser
-		sendApplicationRequest: sendApplicationRequest
-	}
+    apiCall "POST", "/#{facebookId}/apprequests", params, callback
+
+  return {
+    authorize: authorize
+    getAccessToken: getAccessToken
+    getUser: getUser
+    sendApplicationRequest: sendApplicationRequest
+  }
