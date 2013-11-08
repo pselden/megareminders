@@ -15,7 +15,7 @@ exports.getUpcomingReminders = (userId, limit, offset, callback) ->
 		if err
 			callback err
 		else
-			callback null, parseRows results.rows
+			callback null, results.rows
 
 # creates a reminder for the given user
 exports.createReminder = (userId, reminder, callback) ->
@@ -42,16 +42,3 @@ exports.getRemindersToSend = (limit, callback) ->
 			callback err
 		else
 			callback null, parseRows results.rows
-
-parseRows = (rows) ->
-	reminders = rows.map (row) ->
-		return parseRow row
-	return reminders
-
-parseRow = (row) ->
-	return null if !row
-	reminder = row
-	reminderTypes = reminder.reminder_types
-	reminderTypes = reminderTypes.substring 1, reminderTypes.length - 1
-	reminder.reminder_types = reminderTypes.split(',')
-	return reminder

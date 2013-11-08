@@ -3,12 +3,15 @@ body {
 	background-color: #EEE;
 }
 
+#navbar > .navbar-inner {
+    border-radius: 0;
+}
+
 #main {
 	background-color: #FFF;
 	background-color: rgba(255, 255, 255, 0.9);
     padding:10px;
-	border-radius: 5px;
-	border: 1px solid #CCC;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* Home */
@@ -130,11 +133,6 @@ body {
 
 .btn > .icon-right {
 	margin-left: 5px;
-}
-
-/* bootstrap changes */
-.navbar .brand {
-	color: #FFF;
 }
 
 /* sign up */

@@ -16,8 +16,6 @@ module.exports = (appId, appSecret) ->
       redirect_uri: callbackUrl
     # scope: 'email' -- add this back in if we need some sort of scope
 
-    console.log options
-
     res.redirect oauth.getAuthorizeUrl options
 
   getAccessToken = (req, callback) ->
